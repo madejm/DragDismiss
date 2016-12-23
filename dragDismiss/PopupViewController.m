@@ -26,12 +26,12 @@
     
     [self.view addSubview:button];
     
-//    [self.view addGestureRecognizer:((PopupNavigationController *)self.navigationController).pgr];
+    [self.navigationController.navigationBar addGestureRecognizer:((PopupNavigationController *)self.navigationController).pgr];
 }
 
 - (IBAction)dismiss:(id)sender
 {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [((PopupNavigationController *)self.navigationController).dismissDelegate dismissChild];
 }
 
 @end

@@ -61,7 +61,7 @@
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
             self.interactor.hasStarted = YES;
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self.dismissDelegate dismissChild];
             break;
         case UIGestureRecognizerStateChanged:
             self.interactor.shouldFinish = progress > percentThreshold;

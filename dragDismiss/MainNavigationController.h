@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopupNavigationController.h"
 
-@interface MainNavigationController : UINavigationController
+@interface MainNavigationController : UINavigationController <DismissDelegate>
 
 @end

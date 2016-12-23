@@ -34,7 +34,7 @@
         fromVC.view.frame = finalFrame;
     } completion:^(BOOL finished) {
         
-        [transitionContext completeTransition:[transitionContext transitionWasCancelled]];
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
     }];
 }
 

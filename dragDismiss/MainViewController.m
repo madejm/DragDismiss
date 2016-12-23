@@ -11,7 +11,7 @@
 #import "PopupViewController.h"
 
 @interface MainViewController ()
-
+@property(nonatomic,strong) PopupNavigationController *nc;
 @end
 
 @implementation MainViewController
@@ -26,17 +26,18 @@
     [button addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:button];
+    
+    PopupViewController *vc = [[PopupViewController alloc] init];
+    
+    self.nc = [[PopupNavigationController alloc] initWithRootViewController:vc];
+    self.nc.dismissDelegate = self.navigationController;
 }
 
 - (IBAction)show:(id)sender
 {
-    PopupViewController *vc = [[PopupViewController alloc] init];
-    
-    PopupNavigationController *nc = [[PopupNavigationController alloc] initWithRootViewController:vc];
-    
     self.modalPresentationStyle = UIModalPresentationFullScreen;
     
-    [self.navigationController presentViewController:nc animated:YES completion:nil];
+    [self.navigationController presentViewController:self.nc animated:YES completion:nil];
 }
 
 @end

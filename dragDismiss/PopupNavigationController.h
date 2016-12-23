@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DismissDelegate <NSObject>
+
+- (void)dismissChild;
+
+@end
+
 @interface PopupNavigationController : UINavigationController <UIViewControllerTransitioningDelegate>
 
 @property(nonatomic,strong) UIPanGestureRecognizer *pgr;
+@property(nonatomic,weak) id<DismissDelegate> dismissDelegate;
 
 @end
